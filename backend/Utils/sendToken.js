@@ -6,7 +6,7 @@ const sendToken = (user,statusCode, res)=>{
         httpOnly:true
     }
 
-    res.status(statusCode).cookie('Token', token,options).json({
+    res.status(statusCode).cookie('token', token,options).json({
         success:true,
         user,
         token

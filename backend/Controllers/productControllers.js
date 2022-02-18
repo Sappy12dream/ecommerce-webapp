@@ -4,8 +4,11 @@ const asyncError = require('../Middleware/asyncError')
 const ApiFeatures = require('../Utils/apiFeatures')
 
 exports.createProduct = asyncError(async (req,res,next)=>{
+    req.body.user = req.user.id;
+    
         const product = await Product.create(req.body)
-        res.status(201).json(product);
+        res.status(201).json({success:true,
+            product});
 })
 
 
